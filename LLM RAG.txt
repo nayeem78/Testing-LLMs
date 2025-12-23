@@ -1,0 +1,39 @@
+An LLM should use retrieval-augmented generation (RAG) to provide up-to-date information from a user’s input, whether that’s related to a customer, an employee, or the business more broadly. And an LLM should use Model Context Protocol (MCP) when a user wants to perform actions inside of an application, such as creating a ticket, sending an email to a new hire, or updating a customer’s account information.
+
+
+RAG (Retrieval-Augmented Generation) retrieves knowledge to make AI more informed, 
+while MCP (Model Context Protocol) enables AI to take action by connecting it to tools and APIs. 
+It’s a protocol that allows LLMs to interact with outside data sources via an MCP server.
+
+Put simply: RAG is best suited for enterprise AI search while MCP should support agentic AI use cases. 
+
+
+How vector databases work in RAG
+
+Data Chunking and Embedding: Documents and knowledge bases are broken down into smaller chunks. An embedding model converts these chunks    into high-dimensional vectors (numerical representations) that capture their semantic meaning.
+Storage: These vector embeddings, along with the original text chunks, are stored in the vector database.
+Querying: When a user submits a query, it is also converted into a vector embedding using the same model.
+Similarity Search: The vector database then performs a similarity search to find the vectors in its database that are closest to the query vector, based on distance or similarity metrics. This identifies the most semantically relevant data chunks.
+Context Augmentation: The retrieved, relevant text chunks are then combined with the original user query to form an augmented prompt.
+LLM Generation: This augmented prompt is sent to a large language model, which uses the provided context to generate a more accurate, factual, and contextually relevant answer than it could have generated on its own
+
+
+
+LlamaIndex specializes in data indexing and retrieval, making it ideal for connecting LLMs to your own data, while Langchain is a more general-purpose framework for building complex, multi-step applications and agentic workflows. They are often used together, with LlamaIndex handling the data connection and Langchain orchestrating the application logic.
+
+Indexing in Retrieval-Augmented Generation (RAG) is the process of organizing external documents to enable fast and efficient retrieval of relevant information when a user asks a question. This involves splitting documents into smaller chunks, converting those chunks into numerical vector representations, and storing them in a vector database for quick similarity searches.
+
+Observability - Helicone, Grafana, Lang Smith, Elastic
+
+Distance Metrics:(for similarity search)
+
+    Cosine Similarity: Measures the angle between vectors (1 is identical, 0 is orthogonal).
+    Euclidean Distance: Measures the straight-line distance (0 is identical).
+
+
+By default, the length of the embedding vector is 1536 for text-embedding-3-small or 3072 for text-embedding-3-large
+
+    LangChain: The foundation, build modular LLM workflows (prompts, tools, memory, retrievers) using simple APIs like LCEL. Best for prototyping and linear apps.
+    LangGraph: The orchestrator, manage complex, stateful, branching workflows with retries, loops, and persistence. Best for resilient, production-ready, multi-agent systems.
+    LangSmith: The observer, framework-agnostic tracing, evaluation, and monitoring of LLM apps. Best for debugging, regression testing, and quality tracking.
+    LangFlow: The visual builder, drag-and-drop interface for quickly prototyping flows and exporting them to code. Best for teams, workshops, and non-coders.
