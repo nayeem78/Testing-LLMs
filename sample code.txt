@@ -1,1 +1,2 @@
 pip install transformers torch
+pip install python 3.0
